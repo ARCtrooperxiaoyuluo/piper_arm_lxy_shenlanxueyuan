@@ -1,0 +1,49 @@
+# README
+
+
+## 1. Test Forward Kinematics
+
+terminal 1:
+> source /home/ubuntu/arm_student_ws/piper_ros/devel/setup.bash
+> 
+> roslaunch piper start_single_piper_rviz.launch 
+> 
+注意路径要修改为你自己的路径地址
+
+terminal 2:
+> source /home/ubuntu/arm_student_ws/piper_ros/devel/setup.bash
+> 
+> cd /home/ubuntu/arm_student_ws/project1/src/
+> 
+> python fk_test.py
+> 
+RVIZ里面，Add->By topic->/fk_marker
+
+可以看到，小球跟踪在机械臂末端点 
+
+## 2. Test Inverse Kinematics
+
+terminal 1:
+> source /home/ubuntu/arm_student_ws/piper_ros/devel/setup.bash
+> 
+> roslaunch piper start_single_piper_rviz.launch
+
+
+terminal 2:
+> rosnode kill /joint_state_publisher_gui /piper_ctrl_single_node
+>
+> source /home/ubuntu/arm_student_ws/piper_ros/devel/setup.bash
+> 
+> cd /home/ubuntu/arm_student_ws/project1/src/
+> 
+> python ik_test.py
+> 
+RVIZ里面，Add->By topic-> /ik_traget_point   /planned_trajectory
+可以看到机械臂规划出一条画圆的轨迹
+
+
+## 5. （Optinal）Implement FK & IK Functions in src/piper_arm.py by yourself 
+
+##### 1.1 Complete the DH table of piper arm
+##### 1.2 Complete the forward_kinematics function
+##### 1.3 Complete the inverse_kinematics function

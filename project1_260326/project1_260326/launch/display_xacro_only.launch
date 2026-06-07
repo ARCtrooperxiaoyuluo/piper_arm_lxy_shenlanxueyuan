@@ -1,0 +1,14 @@
+<launch>
+  <arg
+    name="model" />
+  <arg name="rviz_config" default="$(find qt_piper_class)/config/piper_ctrl.rviz" />
+  <param
+    name="robot_description"
+    textfile="$(find qt_piper_class)/config/piper_description.xacro" />
+
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(arg rviz_config)" />
+</launch>
